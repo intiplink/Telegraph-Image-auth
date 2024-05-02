@@ -26,13 +26,6 @@ export async function onRequestPost(context) {  // Contents of context object
      console.dir(request.headers);
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
-     const express = require('express');
-     const app = express();
-     app.get('/', (req, res) => {
-      console.log(req.headers);
-      res.send('Headers logged.');
-    });
-    app.listen(3000);
      console.log("requesheader:"+request.headers.get('authCode'))
      context.request.headers.delete("authCode");
      console.log("requesheader:"+request.headers.get('authCode'))
