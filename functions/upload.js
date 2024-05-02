@@ -28,7 +28,7 @@ export async function onRequestPost(context) {  // Contents of context object
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
      console.log("requesheader:"+request.headers.get('authCode'))
-     context.request.headers.delete("authCode");
+     //context.request.headers.delete("authCode");
      console.log("requesheader:"+request.headers.get('authCode'))
      context.request
      const url = new URL(request.url);
