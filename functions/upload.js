@@ -23,6 +23,7 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
      if(1==1){
      context.request
+     console.log("request.token:"+request.headers['authCode'])
      const url = new URL(request.url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
@@ -33,6 +34,7 @@ export async function onRequestPost(context) {  // Contents of context object
      console.log("search:"+url.search);
      console.log("env:"+env);
      console.log("params.code:"+params.code);
+     console.log("authcode-webget:"+window.localStorage.getItem('authCode'));
     return response;
      }
      else
