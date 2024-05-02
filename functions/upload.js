@@ -23,11 +23,13 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
      console.log("requesheader:"+context.request.headers.get('authCode'))
      if(request.headers.get('authCode') == env.AUTH_CODE){
-      console.log("before delete request.headers:"+context.request.headers);
-     request.headers.delete("authCode");
-     console.log("after delete request.headers:"+context.request.headers);
+     console.log("after delete request.headers:"+JSON.stringify(context.request.headers,null,2));
+     context.request.headers.delete("authCode");
+     console.log("after delete request.headers:"+JSON.stringify(context.request.headers,null,2));
      context.request
+     console.log("1");
      const url = new URL(request.url);
+     console.log("2");
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
          headers: request.headers,
