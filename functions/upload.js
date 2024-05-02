@@ -22,12 +22,13 @@ export async function onRequestPost(context) {  // Contents of context object
      data, // arbitrary space for passing data between middlewares 
      } = context;
      console.log("requesheader:"+context.request.headers.get('authCode'))
-     if(request.headers.get('authCode') == env.AUTH_CODE){
+     //if(request.headers.get('authCode') == env.AUTH_CODE){
+     if(1==1){
      console.dir(request.headers);
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
      console.log("requesheader:"+request.headers.get('authCode'))
-     context.request.headers.delete("authCode");
+    //  context.request.headers.delete("authCode");
      console.log("requesheader:"+request.headers.get('authCode'))
      context.request
      const url = new URL(request.url);
