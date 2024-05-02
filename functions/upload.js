@@ -23,9 +23,9 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
      console.log("requesheader:"+request.headers.get('token'))
      if(request.headers.get('token') == env.AUTH_CODE){
+     request.delete("token");
      context.request
      const url = new URL(request.url);
-     request.delete("token");
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
          headers: request.headers,
