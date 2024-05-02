@@ -41,7 +41,7 @@ export async function onRequestPost(context) {  // Contents of context object
      console.log("search:"+url.search);
      console.log("env:"+env);
      console.log("params.code:"+params.code);
-     console.log("authcode-webget:"+window.localStorage.getItem('authCode'));
+     //console.log("authcode-webget:"+window.localStorage.getItem('authCode'));
     return response;
      }
      else
