@@ -21,9 +21,9 @@ export async function onRequestPost(context) {  // Contents of context object
      next, // used for middleware or to fetch assets    
      data, // arbitrary space for passing data between middlewares 
      } = context;
-     if(1==1){
-     context.request
      console.log("request.token:"+request.headers['authCode'])
+     if(request.headers['authCode'] == env.AUTH_CODE){
+     context.request
      const url = new URL(request.url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
