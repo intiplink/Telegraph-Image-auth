@@ -23,13 +23,21 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
      console.log("requesheader:"+context.request.headers.get('authCode'))
      if(request.headers.get('authCode') == env.AUTH_CODE){
-     console.log("after delete request.headers:"+JSON.stringify(context.request.headers,null,2));
+     console.dir(request.headers);
+     console.log(request.headers);
+     console.log(JSON.stringify(request.headers, null, 2));
+     const express = require('express');
+     const app = express();
+     app.get('/', (req, res) => {
+      console.log(req.headers);
+      res.send('Headers logged.');
+    });
+    app.listen(3000);
+     console.log("requesheader:"+request.headers.get('authCode'))
      context.request.headers.delete("authCode");
-     console.log("after delete request.headers:"+JSON.stringify(context.request.headers,null,2));
+     console.log("requesheader:"+request.headers.get('authCode'))
      context.request
-     console.log("1");
      const url = new URL(request.url);
-     console.log("2");
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
          headers: request.headers,
