@@ -24,7 +24,12 @@ export async function onRequest(context) {
   console.log(env);
   console.log(params.code);
   if (decodeURIComponent(params.authCode) === env.AUTH_CODE) {
-    return new Response("ok");
+    const url = new URL(request.url);
+     const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
+         method: request.method,
+         headers: request.headers,
+         body: request.body,
+     });
   } else {
     return new UnauthorizedException("error");
   }
