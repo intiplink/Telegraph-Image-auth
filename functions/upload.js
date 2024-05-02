@@ -29,10 +29,10 @@ export async function onRequestPost(context) {  // Contents of context object
          headers: request.headers,
          body: request.body,
      });
-     console.log("pathname"+"url.pathname");
-     console.log("search"+"url.search");
-     console.log(env);
-     console.log(params.code);
+     console.log("pathname:"+url.pathname);
+     console.log("search:"+url.search);
+     console.log("env:"+env);
+     console.log("params.code:"+params.code);
     return response;
      }
      else
