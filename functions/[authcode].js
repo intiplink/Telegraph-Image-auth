@@ -27,12 +27,14 @@ export async function onRequestPost(context) {  // Contents of context object
      if (decodeURIComponent(params.authcode) === env.AUTH_CODE){
     //  if(1==1){
      context.request
+     console.log("old request url:"+request.url.toString);
      const url = new URL(`${request.protocol}//${request.host}/upload/${request.search}`);
-     const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
-         method: request.method,
-         headers: request.headers,
-         body: request.body,
-     });
+     console.log("new request url:"+request.url.toString);
+    //  const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
+    //      method: request.method,
+    //      headers: request.headers,
+    //      body: request.body,
+    //  });
      console.log("pathname:"+url.pathname.toString());
      console.log("search:"+url.search.toString());
      console.log("env:"+env);
