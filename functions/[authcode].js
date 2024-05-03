@@ -21,27 +21,28 @@ export async function onRequestPost(context) {  // Contents of context object
      next, // used for middleware or to fetch assets    
      data, // arbitrary space for passing data between middlewares 
      } = context;
-     console.log("requesheader:"+context.request.headers.get('authcode'))
+    //  console.log("requesheader:"+context.request.headers.get('authcode'))
     //  if(request.headers.get('authcode') == env.AUTH_CODE){
      console.log(decodeURIComponent(params.authcode))
      if (decodeURIComponent(params.authcode) === env.AUTH_CODE){
     //  if(1==1){
      context.request
-     console.log("old request url:"+request.url);
-     console.log("old request url type:"+(typeof request.url));
+    //  console.log("old request url:"+request.url);
+    //  console.log("old request url type:"+(typeof request.url));
      const url1=new URL(request.url)
      const url = url1.protocol + '//' + url1.host + '/upload/' + url1.search;
-     console.log("new request url:"+url);
-     request.url=url
+    //  console.log("new request url:"+url);
+
+     
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
          headers: request.headers,
          body: request.body,
      });
-     console.log("pathname:"+url.pathname.toString());
-     console.log("search:"+url.search.toString());
-     console.log("env:"+env);
-     console.log("params.code:"+params.code);
+    //  console.log("pathname:"+url.pathname.toString());
+    //  console.log("search:"+url.search.toString());
+    //  console.log("env:"+env);
+    //  console.log("params.code:"+params.code);
 
     return response;
      }
