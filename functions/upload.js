@@ -28,14 +28,22 @@ export async function onRequestPost(context) {  // Contents of context object
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
      console.log('authcode' in request.headers); 
-      delete request.headers['authcode'];
-      console.log('authcode' in request.headers); 
+     // 假设 req.headers 是原始的 headers 对象
+const originalHeaders = request.headers;
+const newHeaders = {};
+
+for (let key of Object.keys(originalHeaders)) {
+  if (key.toLowerCase() !== 'authcode') { 
+    newHeaders[key] = originalHeaders[key];
+  }
+}
+
 
      context.request
      const url = new URL(request.url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
-         headers: request.headers,
+         headers: newHeaders,
          body: request.body,
      });
      console.log("pathname:"+url.pathname);
