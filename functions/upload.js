@@ -27,9 +27,10 @@ export async function onRequestPost(context) {  // Contents of context object
      console.dir(request.headers);
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
-     console.log("requesheader:"+request.headers.get('authcode'))
-     context.request.headers.delete("authcode");
-     console.log("requesheader:"+request.headers.get('authcode'))
+     console.log('authcode' in headers); 
+      delete headers['authcode'];
+      console.log('authcode' in headers); 
+
      context.request
      const url = new URL(request.url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
