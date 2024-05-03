@@ -68,4 +68,5 @@ export async function onRequestPost(context) {  // Contents of context object
      {
       return new UnauthorizedException("error");
      }
+     return new UnauthorizedException("error");
   }
