@@ -27,13 +27,7 @@ export async function onRequestPost(context) {  // Contents of context object
      形如/upload?authcode=1*/
 
 
-     context.request
-     let head=request.headers;
-     for (let key in head) {
-      if (head.hasOwnProperty(key)) { 
-        console.log(key + ": " + head[key]);
-      }
-    }
+     
     //  for (let key of Object.keys(head)) {
     //   console.log(key)
     //   console.log(head[key])
@@ -47,8 +41,14 @@ export async function onRequestPost(context) {  // Contents of context object
     //  console.log(referer)
     //  console.log(qauthcode)
 
-    if(1==2){
-     
+    if(1==1){
+      context.request
+      let head=request.headers;
+      for (let key in head) {
+       if (head.hasOwnProperty(key)) { 
+         console.log(key + ": " + head[key]);
+       }
+     }
      const url1=new URL(request.url)
      const url = new URL(url1.protocol + '//' + url1.host + '/upload' + url1.search);
 
@@ -57,16 +57,11 @@ export async function onRequestPost(context) {  // Contents of context object
     就这个路径负责文件上传，改别的基本都是错误请求。
     */
 
-     const response = fetch('https://telegra.ph/' + url.pathname , {
-         method: request.method,
-         headers: request.headers,
-         body: request.body,
-     });
-     console.log("pathname:"+url.pathname.toString());
-     console.log("search:"+url.search.toString());
-     console.log("env:"+env);
-     console.log("params.code:"+params.code);
-
+    //  const response = fetch('https://telegra.ph/' + url.pathname , {
+    //      method: request.method,
+    //      headers: request.headers,
+    //      body: request.body,
+    //  });
     return response;
      }
      else
