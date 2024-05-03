@@ -22,8 +22,8 @@ export async function onRequestPost(context) {  // Contents of context object
      data, // arbitrary space for passing data between middlewares 
      } = context;
      console.log("requesheader:"+context.request.headers.get('authcode'))
-     if(request.headers.get('authcode') == env.AUTH_CODE){
-    //  if(1==1){
+    //  if(request.headers.get('authcode') == env.AUTH_CODE){
+     if(1==1){
      console.dir(request.headers);
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
