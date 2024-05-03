@@ -21,15 +21,15 @@ export async function onRequestPost(context) {  // Contents of context object
      next, // used for middleware or to fetch assets    
      data, // arbitrary space for passing data between middlewares 
      } = context;
-     console.log("requesheader:"+context.request.headers.get('authCode'))
-     if(request.headers.get('authCode') == env.AUTH_CODE){
+     console.log("requesheader:"+context.request.headers.get('authcode'))
+     if(request.headers.get('authcode') == env.AUTH_CODE){
     //  if(1==1){
      console.dir(request.headers);
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
-     console.log("requesheader:"+request.headers.get('authCode'))
-     //context.request.headers.delete("authCode");
-     console.log("requesheader:"+request.headers.get('authCode'))
+     console.log("requesheader:"+request.headers.get('authcode'))
+     context.request.headers.delete("authcode");
+     console.log("requesheader:"+request.headers.get('authcode'))
      context.request
      const url = new URL(request.url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
