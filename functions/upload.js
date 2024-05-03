@@ -50,15 +50,14 @@ export async function onRequestPost(context) {  // Contents of context object
        }
      }
      console.log(request.headers.referer)
-     console.log(request.headers.referer.tostring)
-     console.log("method");
-     console.log(request.method)
-     console.log(JSON.stringify(request.method))
-     console.log("header");
-     console.log(JSON.stringify(request.headers))
-     console.log(head.get('referer'))
-     console.log(head.get('Referer'))
-     console.log(head['referer'].tostring)
+    //  console.log("method");
+    //  console.log(request.method)
+    //  console.log(JSON.stringify(request.method))
+    //  console.log("header");
+    //  console.log(JSON.stringify(request.headers))
+    //  console.log(head.get('referer'))
+    //  console.log(head.get('Referer'))
+    //  console.log(head['referer'].tostring)
      
 
      const url1=new URL(request.url)
