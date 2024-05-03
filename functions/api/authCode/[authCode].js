@@ -23,7 +23,7 @@ export async function onRequest(context) {
   } = context;
   console.log(env);
   console.log(params.code);
-  if (decodeURIComponent(params.authCode) === env.AUTH_CODE) {
+  if (decodeURIComponent(params.authcode) === env.AUTH_CODE) {
     return new Response("ok");
   } else {
     return new UnauthorizedException("error");
