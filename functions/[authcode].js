@@ -27,9 +27,9 @@ export async function onRequestPost(context) {  // Contents of context object
      if (decodeURIComponent(params.authcode) === env.AUTH_CODE){
     //  if(1==1){
      context.request
-     console.log("old request url:"+request.url.toString);
+     console.log("old request url:"+request.url);
      const url = new URL(`${request.protocol}//${request.host}/upload/${request.search}`);
-     console.log("new request url:"+request.url.toString);
+     console.log("new request url:"+request.url);
     //  const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
     //      method: request.method,
     //      headers: request.headers,
