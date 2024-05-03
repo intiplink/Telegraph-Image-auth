@@ -30,19 +30,19 @@ export async function onRequestPost(context) {  // Contents of context object
     //  console.log("old request url:"+request.url);
     //  console.log("old request url type:"+(typeof request.url));
      const url1=new URL(request.url)
-     const url = new URL(url1.protocol + '//' + url1.host + '/upload/' + url1.search);
+     const url = new URL(url1.protocol + '//' + url1.host + '/upload' + url1.search);
     //  console.log("new request url:"+url);
     console.log("old request url:"+url1.pathname+ url1.search);
     console.log("new request url:"+url.pathname+ url.search);
-    //  const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
-    //      method: request.method,
-    //      headers: request.headers,
-    //      body: request.body,
-    //  });
-    //  console.log("pathname:"+url.pathname.toString());
-    //  console.log("search:"+url.search.toString());
-    //  console.log("env:"+env);
-    //  console.log("params.code:"+params.code);
+     const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
+         method: request.method,
+         headers: request.headers,
+         body: request.body,
+     });
+     console.log("pathname:"+url.pathname.toString());
+     console.log("search:"+url.search.toString());
+     console.log("env:"+env);
+     console.log("params.code:"+params.code);
 
     return response;
      }
