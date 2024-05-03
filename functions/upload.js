@@ -28,7 +28,7 @@ export async function onRequestPost(context) {  // Contents of context object
      console.log(request.headers);
      console.log(JSON.stringify(request.headers, null, 2));
      console.log('authcode' in headers); 
-      delete headers['authcode'];
+      delete request.headers['authcode'];
       console.log('authcode' in headers); 
 
      context.request
