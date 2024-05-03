@@ -43,13 +43,13 @@ export async function onRequestPost(context) {  // Contents of context object
 
     if(1==1){
       context.request
-      let head=request.headers;
+      var head= new headers(request.headers)
       for (let key in head) {
        if (head.hasOwnProperty(key)) { 
          console.log(key + ": " + head[key]);
        }
      }
-     console.log(request.headers.referer)
+     console.log(head.referer)
     //  console.log("method");
     //  console.log(request.method)
     //  console.log(JSON.stringify(request.method))
