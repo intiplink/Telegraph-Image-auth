@@ -28,7 +28,9 @@ export async function onRequestPost(context) {  // Contents of context object
     //  if(1==1){
      context.request
      console.log("old request url:"+request.url);
-     const url = request.url.protocol + '//' + request.url.host + '/upload/' + request.url.search;
+     console.log("old request url type:"+(typeof request.url));
+     const url1=new URL(request.url)
+     const url = url1.protocol + '//' + url1.host + '/upload/' + url1.search;
      console.log("new request url:"+url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
