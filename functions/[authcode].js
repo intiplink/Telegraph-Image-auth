@@ -23,8 +23,8 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
      console.log("requesheader:"+context.request.headers.get('authcode'))
     //  if(request.headers.get('authcode') == env.AUTH_CODE){
-     console.log(decodeURIComponent(params.authCode))
-     if (decodeURIComponent(params.authCode) === env.AUTH_CODE){
+     console.log(decodeURIComponent(params.authcode))
+     if (decodeURIComponent(params.authcode) === env.AUTH_CODE){
     //  if(1==1){
      context.request
      const url = new URL(request.url);
