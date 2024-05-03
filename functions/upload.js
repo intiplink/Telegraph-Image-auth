@@ -43,7 +43,7 @@ for (let key of Object.keys(originalHeaders)) {
      const url = new URL(request.url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
          method: request.method,
-         headers: newHeaders,
+         headers: request.headers,
          body: request.body,
      });
      console.log("pathname:"+url.pathname);
