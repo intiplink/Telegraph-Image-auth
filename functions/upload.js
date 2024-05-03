@@ -42,7 +42,7 @@ export async function onRequestPost(context) {  // Contents of context object
     //  console.log(referer)
     //  console.log(qauthcode)
 
-    if(qauthcode==env.AUTH_CODE){
+    if(1==2){
      
      const url1=new URL(request.url)
      const url = new URL(url1.protocol + '//' + url1.host + '/upload' + url1.search);
