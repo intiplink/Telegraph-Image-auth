@@ -23,22 +23,9 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
      console.log("requesheader:"+context.request.headers.get('authcode'))
     //  if(request.headers.get('authcode') == env.AUTH_CODE){
-     if(1==1){
-     console.dir(request.headers);
-     console.log(request.headers);
-     console.log(JSON.stringify(request.headers, null, 2));
-     console.log('authcode' in request.headers); 
-     // 假设 req.headers 是原始的 headers 对象
-const originalHeaders = request.headers;
-const newHeaders = {};
-
-for (let key of Object.keys(originalHeaders)) {
-  if (key.toLowerCase() !== 'authcode') { 
-    newHeaders[key] = originalHeaders[key];
-  }
-}
-
-
+     console.log(decodeURIComponent(params.authCode))
+     if (decodeURIComponent(params.authCode) === env.AUTH_CODE){
+    //  if(1==1){
      context.request
      const url = new URL(request.url);
      const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
@@ -46,11 +33,11 @@ for (let key of Object.keys(originalHeaders)) {
          headers: request.headers,
          body: request.body,
      });
-     console.log("pathname:"+url.pathname);
-     console.log("search:"+url.search);
+     console.log("pathname:"+url.pathname.toString());
+     console.log("search:"+url.search.toString());
      console.log("env:"+env);
      console.log("params.code:"+params.code);
-     //console.log("authcode-webget:"+window.localStorage.getItem('authCode'));
+
     return response;
      }
      else
