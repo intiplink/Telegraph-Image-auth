@@ -28,7 +28,7 @@ export async function onRequestPost(context) {  // Contents of context object
      形如/upload?authcode=1*/
 
      const serachparams = new URLSearchParams(url.search);
-     const qauthcode = params1.get('authcode');
+     const qauthcode = serachparams.get('authcode');
      console.log(qauthcode)
 
     if(qauthcode==env.AUTH_CODE){
