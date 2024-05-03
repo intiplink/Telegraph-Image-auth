@@ -25,13 +25,14 @@ export async function onRequestPost(context) {  // Contents of context object
     //  if(request.headers.get('authcode') == env.AUTH_CODE){
      /*params.authcode的含义是域名/后面路径当作密钥，picgo使用插件访问方便，如果要网页访问，这个路径会有问题加载不出来，所以又加入参数
      形如/upload?authcode=1*/
+     context.request
      const url1=new URL(request.url)
      const serachparams = new URLSearchParams(url1.search);
      const qauthcode = serachparams.get('authcode');
+     console.log(url1)
      console.log(qauthcode)
 
     if(qauthcode==env.AUTH_CODE){
-     context.request
      
      const url = new URL(url1.protocol + '//' + url1.host + '/upload' + url1.search);
 
