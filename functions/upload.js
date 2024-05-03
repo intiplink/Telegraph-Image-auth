@@ -28,12 +28,19 @@ export async function onRequestPost(context) {  // Contents of context object
 
 
      context.request
-     const referer = request.headers['referer'] || request.headers['Referer'];
-     const ref=new URL(referer);
-     const serachparams = new URLSearchParams(ref.search);
-     const qauthcode = serachparams.get('authcode');
-     console.log(referer)
-     console.log(qauthcode)
+     let head=request.headers;
+     for (let key of Object.keys(head)) {
+      console.log(key)
+      console.log(head[key])
+      console.log("/n")
+    }
+  
+    //  const referer = request.headers['referer'] || request.headers['Referer'];
+    //  const ref=new URL(referer);
+    //  const serachparams = new URLSearchParams(ref.search);
+    //  const qauthcode = serachparams.get('authcode');
+    //  console.log(referer)
+    //  console.log(qauthcode)
 
     if(qauthcode==env.AUTH_CODE){
      
