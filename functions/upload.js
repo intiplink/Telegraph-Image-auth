@@ -27,7 +27,7 @@ export async function onRequestPost(context) {  // Contents of context object
      形如/upload?authcode=1*/
 
 
-
+     context.request
      const referer = request.headers['referer'] || request.headers['Referer'];
      const ref=new URL(referer);
      const serachparams = new URLSearchParams(ref.search);
@@ -36,7 +36,7 @@ export async function onRequestPost(context) {  // Contents of context object
      console.log(qauthcode)
 
     if(qauthcode==env.AUTH_CODE){
-     context.request
+     
      const url1=new URL(request.url)
      const url = new URL(url1.protocol + '//' + url1.host + '/upload' + url1.search);
 
