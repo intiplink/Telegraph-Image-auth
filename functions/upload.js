@@ -48,7 +48,7 @@ const newHeaders = {};
 for (let key of Object.keys(originalHeaders)) {
     newHeaders[key] = originalHeaders[key];
 }
-var a=newHeaders['referer']
+var a=JSON.stringify(newHeaders)
   console.log(a)
     //  console.log("method");
     //  console.log(request.method)
