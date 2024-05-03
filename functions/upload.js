@@ -29,10 +29,11 @@ export async function onRequestPost(context) {  // Contents of context object
 
      context.request
      let head=request.headers;
-     console.log(head)
-     console.log(typeof head)
-     console.log(head['referer'])
-     console.log(head.get['referer'])
+     for (let key in head) {
+      if (head.hasOwnProperty(key)) { 
+        console.log(key + ": " + head[key]);
+      }
+    }
     //  for (let key of Object.keys(head)) {
     //   console.log(key)
     //   console.log(head[key])
