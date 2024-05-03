@@ -29,7 +29,7 @@ export async function onRequestPost(context) {  // Contents of context object
      context.request
      console.log("old request url:"+request.url);
      const url = new URL(`${request.protocol}//${request.host}/upload/${request.search}`);
-     console.log("new request url:"+request.url);
+     console.log("new request url:"+url.url);
     //  const response = fetch('https://telegra.ph/' + url.pathname + url.search, {
     //      method: request.method,
     //      headers: request.headers,
