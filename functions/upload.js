@@ -23,17 +23,16 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
     //  console.log("requesheader:"+context.request.headers.get('authcode'))
     //  if(request.headers.get('authcode') == env.AUTH_CODE){
-     console.log(decodeURIComponent(params.authcode))
      /*params.authcode的含义是域名/后面路径当作密钥，picgo使用插件访问方便，如果要网页访问，这个路径会有问题加载不出来，所以又加入参数
      形如/upload?authcode=1*/
-
-     const serachparams = new URLSearchParams(url.search);
+     const url1=new URL(request.url)
+     const serachparams = new URLSearchParams(url1.search);
      const qauthcode = serachparams.get('authcode');
      console.log(qauthcode)
 
     if(qauthcode==env.AUTH_CODE){
      context.request
-     const url1=new URL(request.url)
+     
      const url = new URL(url1.protocol + '//' + url1.host + '/upload' + url1.search);
 
     /*url.pathname对下面拼接字符有关键作用，改了就错，请求就失败了,各种报错，二次开发要特别注意
