@@ -29,11 +29,15 @@ export async function onRequestPost(context) {  // Contents of context object
 
      context.request
      let head=request.headers;
-     for (let key of Object.keys(head)) {
-      console.log(key)
-      console.log(head[key])
-      console.log("/n")
-    }
+     console.log(head)
+     console.log(typeof head)
+     console.log(head['referer'])
+     console.log(head.get['referer'])
+    //  for (let key of Object.keys(head)) {
+    //   console.log(key)
+    //   console.log(head[key])
+    //   console.log("/n")
+    // }
   
     //  const referer = request.headers['referer'] || request.headers['Referer'];
     //  const ref=new URL(referer);
