@@ -23,12 +23,8 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
   
     const ref=request.headers.get('Referer');
-    console.log(ref)
-    console.log(ref.url)
-    console.log("refsearch:"+ref.search)
-    const refparam = new URLSearchParams(ref.search);
-    console.log(ref.search)
-    console.log(refparam)
+    const url= new URL(ref)
+    const refparam = new URLSearchParams(url.search);
     const autcode=refparam.get('authcode');
     console.log(autcode)
     if(autcode==env.AUTH_CODE){
