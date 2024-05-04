@@ -23,7 +23,7 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
   
     const ref=request.headers.get('Referer');
-    const refparam = new URLSearchParams(url.search);
+    const refparam = new URLSearchParams(ref.search);
     const autcode=refparam.get('authcode');
 
     if(autcode==env.AUTH_CODE){
