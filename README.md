@@ -33,3 +33,5 @@ https://<span></span>yourdomain.page.dev/randompic
 https://github.com/cf-pages/Telegraph-Image
 ### njzzzz
 https://github.com/njzzzz/Telegraph-Image
+### secflag
+https://github.com/secflag/picgo-plugin-telegraph-image
