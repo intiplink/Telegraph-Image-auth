@@ -19,5 +19,5 @@ export async function onRequest(context) {
     console.log(rannum)
     const picname=value.keys[rannum].name
     console.log(picname)
-    return new Response(picname);
+    return Response.redirect(url.origin+"/file"+picname, 302);
   }
