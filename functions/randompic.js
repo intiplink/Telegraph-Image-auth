@@ -9,16 +9,12 @@ export async function onRequest(context) {
       next, // used for middleware or to fetch assets
       data, // arbitrary space for passing data between middlewares
     } = context;
-    console.log(env)
+    // console.log(env)
     const value = await env.img_url.list();
 
-    //console.log(value)
     const len=value.keys.length
-    console.log(len)
     const rannum=Math.floor(Math.random() * len)
-    console.log(rannum)
     const picname=value.keys[rannum].name
-    console.log(picname)
     const url = new URL(request.url);
     return Response.redirect(url.origin+"/file/"+picname, 302);
   }

@@ -23,7 +23,7 @@ export async function onRequestPost(context) {  // Contents of context object
      } = context;
     //  console.log("requesheader:"+context.request.headers.get('authcode'))
     //  if(request.headers.get('authcode') == env.AUTH_CODE){
-     console.log(decodeURIComponent(params.authcode))
+    //  console.log(decodeURIComponent(params.authcode))
      /*params.authcode的含义是域名/后面路径当作密钥，picgo使用插件访问方便，如果要网页访问，这个路径会有问题加载不出来，所以又加入参数
      形如/upload?authcode=1*/
 
@@ -32,7 +32,7 @@ export async function onRequestPost(context) {  // Contents of context object
 
      if (decodeURIComponent(params.authcode) === env.AUTH_CODE){
       // if(qauthcode==env.AUTH_CODE){
-     context.request
+    //  context.request
      const url1=new URL(request.url)
      const url = new URL(url1.protocol + '//' + url1.host + '/upload' + url1.search);
     //  console.log("new request url:"+url);
@@ -49,10 +49,10 @@ export async function onRequestPost(context) {  // Contents of context object
          headers: request.headers,
          body: request.body,
      });
-     console.log("pathname:"+url.pathname.toString());
-     console.log("search:"+url.search.toString());
-     console.log("env:"+env);
-     console.log("params.code:"+params.code);
+    //  console.log("pathname:"+url.pathname.toString());
+    //  console.log("search:"+url.search.toString());
+    //  console.log("env:"+env);
+    //  console.log("params.code:"+params.code);
 
     return response;
      }
