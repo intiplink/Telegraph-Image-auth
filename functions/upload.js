@@ -1,3 +1,5 @@
+//该文件用来处理形如https://a.pages.dev/?authcode=1的请求，这样就可以在前端能过认证的方式上传图片。
+
 function UnauthorizedException(reason) {
   return new Response(reason, {
     status: 401,
@@ -26,7 +28,7 @@ export async function onRequestPost(context) {  // Contents of context object
     const url= new URL(ref)
     const refparam = new URLSearchParams(url.search);
     const autcode=refparam.get('authcode');
-    console.log(autcode)
+    
     if(autcode==env.AUTH_CODE){
      
      const url1=new URL(request.url)
