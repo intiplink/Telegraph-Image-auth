@@ -8,9 +8,9 @@ export async function onRequestPost(context) {
     next, // used for middleware or to fetch assets
     data, // arbitrary space for passing data between middlewares
   } = context;
-  console.log(context);
+  console.log(request.headers.get('Referer'))
   context.request;
-  console.log(context);
+  console.log(request.headers.get('Referer'))
   const url = new URL(request.url);
   console.log(' -----------------------')
   console.log('onRequestPost upload url:', url)
