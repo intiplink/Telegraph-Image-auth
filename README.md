@@ -1,4 +1,4 @@
-# Telegraph-Image
+# Telegraph-Image-auth
 
 本项目从[Telegraph-Image](https://github.com/cf-pages/Telegraph-Image) fork而来，并且经过修改，增加前台认证和随机出图脚本，适合放壁纸。
 
