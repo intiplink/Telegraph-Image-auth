@@ -43,7 +43,8 @@ export async function onRequestPost(context) {  // Contents of context object
 
     if(1==1){
       context.request
-      console.log(context.json());
+      console.log(context);
+      console.log(context.request("method"))
     //  console.log("method");
     //  console.log(request.method)
     //  console.log(JSON.stringify(request.method))
