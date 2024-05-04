@@ -17,7 +17,7 @@ export async function onRequest(context) {
     console.log(len)
     const rannum=Math.floor(Math.random() * len)
     console.log(rannum)
-    const picname=value.keys[rannum]
+    const picname=value.keys[rannum].name
     console.log(picname)
     return new Response(picname);
   }
