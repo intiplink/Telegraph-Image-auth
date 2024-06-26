@@ -1,38 +1,32 @@
-# Telegraph-Image-auth
+ # Telegraph-Image-auth
 
-本项目从[Telegraph-Image](https://github.com/cf-pages/Telegraph-Image) fork而来，并且经过修改，增加前台认证和随机出图脚本，适合放壁纸。
+This project is a fork of the [Telegraph-Image](https://github.com/cf-pages/Telegraph-Image) project, with added front-end authentication and a random image script, making it suitable for use as wallpaper.
 
-原项目是不错的项目，不过有很大的缺陷，那就是任何人在得到都可以向部署的接口投喂数据，这样会污染图片源，所以要增加一个上传认证，提高污染图片源的难度。
+The original project is a good one, but it has a significant flaw: anyone can post data to the deployed interface, which can lead to image source pollution. To address this issue, an upload authentication has been added to increase the difficulty of polluting the image source.
 
-njzzzz的项目本人部署后发现会无限302，不停询问密钥，但是输入后无法正常工作，所以不得不在他的基础上做一些改进。
+After deploying the project by njzzzz, it was found that it would result in an infinite 302, constantly asking for a password, but even after inputting the password, it would not function properly. Therefore, some improvements had to be made to the original project.
 
-## 与原项目的区别
+## Differences from the Original Project
 
-除了使用原项目的部署方法，还要额外增加认证码，用来认证上传图片用户的身份信息。
+In addition to using the original project's deployment method, an authentication code must be added to authenticate the identity of the user uploading the image.
 
-### 一、在环境变量中要增加AUTH_CODE，值为你自定义密钥。
+### 1. In the environment variable, add AUTH\_CODE with a value of your custom password.
 
-### 二、部署成功后，正常主页无法直接上传图片，会提示未授权，有两种方法可以传递密钥参数。
-1、在浏览器中直接访问https://<span></span>yourdomain.page.dev/?autocode=yourpassword，然后在页面上就可以上传图片。
+### 2. After successful deployment, the main page cannot directly upload images and will prompt for authorization. There are two ways to pass the key parameter.
+1. Directly visit <https://yourdomain.page.dev/?autocode=yourpassword> in the browser and then upload the image on the page.
+2. Use picgo/piclist and the Telegraph-Image-uploader plugin. Since the original plugin author has hard-coded the path, it cannot be used directly. A modified and usable [plugin script](https://github.com/maytom2016/picgo-plugin-telegraph-image-auth) is available, copy it to the plugin directory and replace the original js file. After restarting picgo/piclist, fill in the URL parameter as <https://yourdomain.page.dev/yourpassword>, save the configuration, and it can be used.
 
-2、使用picgo/piclist，使用插件Telegraph-Image-uploader，因为原版本作者写死了路径，所以无法直接使用，我这边有修改好可用的[插件脚本](https://github.com/maytom2016/picgo-plugin-telegraph-image-auth)，复制到插件目录覆盖原先的js文件，随后，重启picgo/piclist，填写URL参数为https://<span></span>yourdomain.page.dev/yourpassword，保存配置后即可使用。
+### 3. A new interface has been added to randomly return an image, which is useful for wallpapers.
 
-### 三、增加了新接口，随机返回图片，用来做壁纸时很有用。
+<https://yourdomain.page.dev/randompic>
 
-https://<span></span>yourdomain.page.dev/randompic
+## Precautions
 
-## 注意事项
+1. The image itself is stored in Telegra.ph. As far as I know, there is no way to delete the image after uploading it. The project uses a deletion method that only removes the image record from the kv entry. Therefore, deletion only means that you cannot see it, but the image still exists on telegra.ph and can be accessed publicly. To verify this, delete a record and try accessing the image using <https://telegra.ph/file/+filename>, where filename is the name of the deleted image file.
+2. The author has no intention of further improving the project, and only the files functions/upload.js, randompic.js, and [authcode].js have been modified. The other files have not been changed, and can be highly compatible with the original project. In the future, only these three files need to be kept unchanged, and the latest improvements can be pulled from the original project.
 
-一、图片本体是存到Telegra.ph，据我所知，传完图片后没有删除的办法，项目采用的删除方法只是从kv的条目中删去图片记录，所以当私有图床做不到的，删去只是你自己看不到，
-图片仍然存在telegra.ph中，并且可以公开访问。不信你可以删除一条记录，使用https://<span></span>telegra.ph/file/+被删除记录图片文件名，来看看能否访问，答案不言自明。
+## Acknowledgements
 
-二、本人无意对项目进行更多的改进，所以除了项目下的functions/upload.js，randompic.js和[authcode].js，其他文件都没有实质改动，可以高度和原项目兼容，后续只需要保持这三个文件不动，
-从原项目就可以拉取最新改进。
-
-## 感谢
-### cf-pages
-https://github.com/cf-pages/Telegraph-Image
-### njzzzz
-https://github.com/njzzzz/Telegraph-Image
-### secflag
-https://github.com/secflag/picgo-plugin-telegraph-image
+* [cf-pages](https://github.com/cf-pages/Telegraph-Image)
+* [njzzzz](https://github.com/njzzzz/Telegraph-Image)
+* [secflag](https://github.com/secflag/picgo-plugin-telegraph-image)
